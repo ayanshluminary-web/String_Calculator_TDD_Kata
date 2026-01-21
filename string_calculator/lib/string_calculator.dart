@@ -1,17 +1,22 @@
 class StringCalculator {
-
   int add(String numbers) {
-  if (numbers.isEmpty) return 0;
+    if (numbers.isEmpty) return 0;
 
-  //final parts = numbers.split(',');
-  final parts = numbers.split(RegExp('[,\n]'));
+    String delimiter = ',|\n';
 
-  int sum = 0;
+    if (numbers.startsWith('//')) {
+      final parts = numbers.split('\n');
+      delimiter = parts[0][2];
+      numbers = parts[1];
+    }
 
-  for (var part in parts) {
-    sum += int.parse(part);
+    final tokens = numbers.split(RegExp(delimiter));
+    int sum = 0;
+
+    for (var token in tokens) {
+      sum += int.parse(token);
+    }
+
+    return sum;
   }
-
-  return sum;
-}
 }

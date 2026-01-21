@@ -13,12 +13,15 @@ void main() {
   });
 
   test('returns number for single value', () {
-  expect(calculator.add('1'), equals(1));
-});
-test('returns sum of two numbers', () {
-  expect(calculator.add('1,2'), equals(3));
-});
-test('supports new line as delimiter', () {
-  expect(calculator.add('1\n2,3'), equals(6));
-});
+    expect(calculator.add('1'), equals(1));
+  });
+  test('returns sum of two numbers', () {
+    expect(calculator.add('1,2'), equals(3));
+  });
+  test('supports new line as delimiter', () {
+    expect(calculator.add('1\n2,3'), equals(6));
+  });
+  test('supports custom delimiter', () {
+    expect(calculator.add('//;\n1;2'), equals(3));
+  });
 }
