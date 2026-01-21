@@ -8,7 +8,7 @@ class StringCalculator {
       final parts = numbers.split('\n');
       delimiter = parts[0][2];
       numbers = parts[1];
-    }
+    } 
 
     final tokens = numbers.split(RegExp(delimiter));
     int sum = 0;
