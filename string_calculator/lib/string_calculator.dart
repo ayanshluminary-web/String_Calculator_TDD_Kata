@@ -14,7 +14,11 @@ class StringCalculator {
     int sum = 0;
 
     for (var token in tokens) {
-      sum += int.parse(token);
+      final number = int.parse(token);
+      if (number < 0) {
+        throw Exception('Negative numbers not allowed: $number');
+      }
+      sum += number;
     }
 
     return sum;
